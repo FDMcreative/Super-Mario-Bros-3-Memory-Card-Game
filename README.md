@@ -15,6 +15,6 @@ The basic functionalities are all present: selecting the cards, matching, list o
 Difficulties:
 
 - Making the cards inactive after being clicked.
-- Reverse the inactivity of the 2 selected cards in case there are not a match.
+- Reverse the inactivity of the 2 selected cards in case they're not a match.
 - Storing 2 cards with the same function in 2 different variables.
 - Making the visual size (images) responsive

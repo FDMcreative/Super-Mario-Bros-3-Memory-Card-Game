@@ -10,11 +10,12 @@ $(() => {
   var twoPicks = [];
   let i = 0;
   var lost = 0;
+  let wrong = 0;
   var yourItems = [];
 
 
 
-  var deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10coins','10coins', '20coins', '20coins'];
+  var deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10 coins','10 coins', '20 coins', '20 coins'];
   // console.log(deckCards);
 
   var randomNumber = Math.floor(Math.random() * deckCards.length);
@@ -64,12 +65,14 @@ $(() => {
           twoPicks = [];
           i = 0;
           lost++;
+          wrong++;
+          $('#wrongs').text(wrong)
         };
 
         //This checks if 2 lost
         if (lost === 3) {
-          console.log('LOSTTTT');
-          $('#display').text('You lost');
+          console.log('LOSssTTTT');
+          $('#display').text('You Lost');
           $card.css({"pointer-events":"none"});
         }
       }
@@ -82,7 +85,7 @@ $(() => {
   $reset.on('click', () =>{
     divIndex = 1;
     $card.text('');
-    deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10coins','10coins', '20coins', '20coins'];
+    deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10 coins','10 coins', '20 coins', '20 coins'];
     $card.css({"pointer-events": "auto","background-color":"white"});
     $card.off();
     $items.text('');
