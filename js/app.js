@@ -6,6 +6,8 @@ $(() => {
   $start = $('#start');
   $reset = $('#reset');
   $items = $('#items');
+  $wrongs = $('#wrongs');
+  $display = $('#display');
   let divIndex = 1;
   var twoPicks = [];
   let i = 0;
@@ -23,9 +25,6 @@ $(() => {
   //This Starts the Game
   $start.on('click', () => {
 
-    //This removes the ace of spades
-    $card.css({"background-image": "none"});
-
     //This sets the Cards on the Table
     while (deckCards.length > 0) {
 
@@ -35,11 +34,11 @@ $(() => {
       var indexArray = deckCards.indexOf(deckCards[randomNumber]);
       // console.log(randomCard, indexArray);
 
-      //remove that Element from the Deck
+      //removes that Element from the Deck
       deckCards.splice(indexArray, 1);
       // console.log('remaining cards: ' + deckCards);
 
-      //put that Element inside a Div and advance to the next one
+      //puts that Element inside a Div and advances to the next one
       var div = ('#' + divIndex);
       // console.log(div);
       $(div).text(randomCard);
@@ -49,6 +48,12 @@ $(() => {
 
     //This Picks a Card
     $cards.children().on('click', (e) => {
+
+      //This removes the ace of spades
+      $(e.target).css({"background-image": "none"});
+
+      $(e.target).css({"text-indent": "1px"});
+
       twoPicks[i] = $(e.target).text();
       $(e.target).css({"pointer-events": "none", "background-color":"grey"})
       i++;
@@ -69,13 +74,14 @@ $(() => {
           i = 0;
           lost++;
           wrong++;
-          $('#wrongs').text(wrong)
+          $wrongs.text(wrong)
         };
 
         //This checks if 2 lost
         if (lost === 3) {
           console.log('LOSssTTTT');
-          $('#display').text('You Lost');
+          $display.hide();
+          // $('#display').text('You Lost');
           $card.css({"pointer-events":"none"});
         }
       }
@@ -86,12 +92,19 @@ $(() => {
 
   // This Resets the Game
   $reset.on('click', () =>{
+
+    //This resets DISPLAY
+    $display.show();
+    //sets back the ace of spades
+    $card.css({ "text-indent": "-9999px", "background-image": "url('./images/ace-of-spade.jpg')" });
     divIndex = 1;
     $card.text('');
     deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10 coins','10 coins', '20 coins', '20 coins'];
     $card.css({"pointer-events": "auto","background-color":"white"});
     $card.off();
     $items.text('');
+    console.log('RESEEEETTE');
+    $wrongs.text(0)
   });
 
 });

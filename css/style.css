@@ -7,6 +7,8 @@ title {
 }
 
 body {
+  border: 5px dotted grey;
+  height: 100vh;
   background: repeating-linear-gradient(
   -45deg,
   #f7f5e6,
@@ -18,10 +20,12 @@ body {
 
 header {
   color: black;
+  display: inline-flex;
 }
 
 main {
   background-color: black;
+  margin: 1% 5%;
 }
 
 @font-face {
@@ -33,24 +37,43 @@ h1 {
 
 }
 
+.cards {
+  border: 1px solid salmon;
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+}
+
 .card {
+  margin: 2%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  height: 150px;
+  height: 145px;
   width: 100px;
-  color: black;
+  text-indent: -9999px;
   background-color: #ffbcb0;
   background-image: url('../images/ace-of-spade.jpg');
 }
 
+.buttons {
+
+  border: 1px solid red;
+  margin:
+}
+
 button {
+  display: flex;
+  width: 100%;
   color: white;
   background-color: black;
 }
 
 #display {
+  border: 1px solid lightyellow;
+  margin: 10px 80px;
   color: white;
+  background-color: black;
   font-weight: bold;
 }
