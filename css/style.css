@@ -1,0 +1,21 @@
+* {
+  margin: 5px;
+  color: black;
+}
+
+@font-face {
+    font-family: 'myFont';
+    src: url('font/Super-Mario-Bros-3.ttf') format('truetype');
+}
+
+
+.card {
+  display: inline-flex;
+  border: 1px solid yellow;
+  height: 150px;
+  width: 100px;
+}
+
+button {
+
+}
