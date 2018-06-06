@@ -23,6 +23,9 @@ $(() => {
   //This Starts the Game
   $start.on('click', () => {
 
+    //This removes the ace of spades
+    $card.css({"background-image": "none"});
+
     //This sets the Cards on the Table
     while (deckCards.length > 0) {
 

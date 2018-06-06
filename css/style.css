@@ -1,6 +1,27 @@
 * {
-  margin: 5px;
+
+}
+
+title {
+
+}
+
+body {
+  background: repeating-linear-gradient(
+  -45deg,
+  #f7f5e6,
+  #f7f5e6 10px,
+  #d80100 10px,
+  #d80100 20px
+  );
+}
+
+header {
   color: black;
+}
+
+main {
+  background-color: black;
 }
 
 @font-face {
@@ -8,16 +29,28 @@
     src: url('font/Super-Mario-Bros-3.ttf') format('truetype');
 }
 
+h1 {
+
+}
 
 .card {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid yellow;
+  border: 1px solid black;
   height: 150px;
   width: 100px;
+  color: black;
+  background-color: #ffbcb0;
+  background-image: url('../images/ace-of-spade.jpg');
 }
 
 button {
+  color: white;
+  background-color: black;
+}
 
+#display {
+  color: white;
+  font-weight: bold;
 }
