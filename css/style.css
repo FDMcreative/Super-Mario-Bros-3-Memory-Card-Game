@@ -45,20 +45,21 @@ h1 {
 }
 
 .card {
+  border: 1px solid blue;
   margin: 2%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  height: 145px;
-  width: 100px;
+  width: 11%;
+  height: 100px;
   text-indent: -9999px;
   background-color: #ffbcb0;
-  background-image: url('../images/ace-of-spade.jpg');
+  background: url('../images/ace-of-spade.jpg');
+  background-size: contain;
 }
 
 .buttons {
-
   border: 1px solid red;
   margin:
 }
