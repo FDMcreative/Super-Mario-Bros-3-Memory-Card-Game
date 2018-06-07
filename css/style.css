@@ -29,8 +29,8 @@ main {
 }
 
 @font-face {
-    font-family: 'myFont';
-    src: url('font/Super-Mario-Bros-3.ttf') format('truetype');
+    font-family: 'Super Mario Bros 3';
+    src: url('../font/Super-Mario-Bros-3.ttf') format('truetype');
 }
 
 h1 {

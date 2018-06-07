@@ -14,6 +14,7 @@ $(() => {
   var lost = 0;
   let wrong = 0;
   var yourItems = [];
+  let storeDivs = [];
 
 
 
@@ -25,7 +26,10 @@ $(() => {
   //This Starts the Game
   $start.on('click', () => {
 
-    //This sets the Cards on the Table
+    //This shows the cards
+    $cards.css({"display":"block"});
+
+    //This sets the Cards on the Table Randomly
     while (deckCards.length > 0) {
 
       //This gets a random Element from the card deck and its Index
@@ -39,7 +43,7 @@ $(() => {
       // console.log('remaining cards: ' + deckCards);
 
       //puts that Element inside a Div and advances to the next one
-      var div = ('#' + divIndex);
+      var div = ('#' + 'card' + divIndex);
       // console.log(div);
       $(div).text(randomCard);
       divIndex++;
@@ -49,16 +53,23 @@ $(() => {
     //This Picks a Card
     $cards.children().on('click', (e) => {
 
+      console.log(this.id);
+
       //This removes the ace of spades
       $(e.target).css({"background-image": "none"});
-
+      //This brings the text in the foreground
       $(e.target).css({"text-indent": "1px"});
 
       twoPicks[i] = $(e.target).text();
       $(e.target).css({"pointer-events": "none", "background-color":"grey"})
       i++;
-      console.log(twoPicks);
+      console.log('twoPicks: ' + twoPicks);
       console.log(twoPicks[1]);
+
+      //This store that Div inside an Array for a possible reset
+      storeDivs[i] = $(e.target).id;
+      console.log('storeDiv: ' + storeDivs);
+
       //This checks the 2 Cards
       if (twoPicks[1] !== undefined) {
         if (twoPicks[0] === twoPicks[1]) {
@@ -67,14 +78,20 @@ $(() => {
           $items.text(yourItems);
           twoPicks = [];
           i = 0;
+          storeDivs = [];
         }
         else {
           console.log('wrong');
+
+          //This sets the 2 divs back to orginal state
+          // $('#1')$card.css({"pointer-events": "auto","background-color":"white"});
+
           twoPicks = [];
           i = 0;
           lost++;
           wrong++;
           $wrongs.text(wrong)
+          storeDivs = [];
         };
 
         //This checks if 2 lost
@@ -93,6 +110,8 @@ $(() => {
   // This Resets the Game
   $reset.on('click', () =>{
 
+    //This hides the cards
+    $cards.hide();
     //This resets DISPLAY
     $display.show();
     //sets back the ace of spades
