@@ -53,8 +53,6 @@ $(() => {
     //This Picks a Card
     $cards.children().on('click', (e) => {
 
-      console.log(this.id);
-
       //This removes the ace of spades
       $(e.target).css({"background-image": "none"});
       //This brings the text in the foreground
@@ -62,13 +60,17 @@ $(() => {
 
       twoPicks[i] = $(e.target).text();
       $(e.target).css({"pointer-events": "none", "background-color":"grey"})
-      i++;
+
       console.log('twoPicks: ' + twoPicks);
-      console.log(twoPicks[1]);
+      // console.log(twoPicks[1]);
 
       //This store that Div inside an Array for a possible reset
-      storeDivs[i] = $(e.target).id;
+      // let x = $(e.target).id;
+      // console.log('x: ' + x);
+      storeDivs[i] = '#' + $(e.target).attr('id');
       console.log('storeDiv: ' + storeDivs);
+
+      i++;
 
       //This checks the 2 Cards
       if (twoPicks[1] !== undefined) {
@@ -81,17 +83,22 @@ $(() => {
           storeDivs = [];
         }
         else {
-          console.log('wrong');
 
-          //This sets the 2 divs back to orginal state
-          // $('#1')$card.css({"pointer-events": "auto","background-color":"white"});
+          setTimeout(storeDivsReset, 1500);
+          //This sets the 2 divs back to original state AND reset storeDivs
+          function storeDivsReset () {
+            console.log('wrong')
+            $(storeDivs[0]).css({"pointer-events": "auto","background-color":"white", "text-indent": "-9999px", "background-image": "url('./images/ace-of-spade.jpg')"});
+            $(storeDivs[1]).css({"pointer-events": "auto","background-color":"white", "text-indent": "-9999px", "background-image": "url('./images/ace-of-spade.jpg')"});
+            storeDivs = [];
+          };
 
           twoPicks = [];
           i = 0;
           lost++;
           wrong++;
           $wrongs.text(wrong)
-          storeDivs = [];
+
         };
 
         //This checks if 2 lost
