@@ -84,7 +84,7 @@ $(() => {
         }
         else {
 
-          setTimeout(storeDivsReset, 1500);
+          setTimeout(storeDivsReset, 1000);
           //This sets the 2 divs back to original state AND reset storeDivs
           function storeDivsReset () {
             console.log('wrong')
@@ -107,6 +107,7 @@ $(() => {
           $display.hide();
           // $('#display').text('You Lost');
           $card.css({"pointer-events":"none"});
+          reset();
         }
       }
 
@@ -116,7 +117,10 @@ $(() => {
 
   // This Resets the Game
   $reset.on('click', () =>{
+    reset();
+  });
 
+  function reset() {
     //This hides the cards
     $cards.hide();
     //This resets DISPLAY
@@ -131,6 +135,8 @@ $(() => {
     $items.text('');
     console.log('RESEEEETTE');
     $wrongs.text(0)
-  });
+    wrong = 0;
+    lost = 0;
+  };
 
 });
