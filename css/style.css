@@ -41,7 +41,7 @@ h1 {
   border: 1px solid salmon;
   margin: 0 auto;
   text-align: center;
-  width: 70%;
+  width: 75%;
 }
 
 .card {
@@ -52,11 +52,11 @@ h1 {
   align-items: center;
   border: 1px solid black;
   width: 11%;
-  height: 100px;
+  height: 145px;
   text-indent: -9999px;
   background-color: #ffbcb0;
   background: url('../images/ace-of-spade.jpg');
-  background-size: contain;
+  background-size: cover;
 }
 
 .buttons {

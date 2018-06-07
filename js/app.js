@@ -18,7 +18,7 @@ $(() => {
 
 
 
-  var deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10 coins','10 coins', '20 coins', '20 coins'];
+  var deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10-coins','10-coins', '20-coins', '20-coins'];
   // console.log(deckCards);
 
   var randomNumber = Math.floor(Math.random() * deckCards.length);
@@ -57,6 +57,10 @@ $(() => {
       $(e.target).css({"background-image": "none"});
       //This brings the text in the foreground
       $(e.target).css({"text-indent": "1px"});
+      //This sets the image
+      let url = ('./images/' + $(e.target).text() + '.jpg');
+      // console.log(url);
+      $(e.target).css({"background-image": "url(" + url + ")"});
 
       twoPicks[i] = $(e.target).text();
       $(e.target).css({"pointer-events": "none", "background-color":"grey"})
@@ -103,7 +107,7 @@ $(() => {
 
         //This checks if 2 lost
         if (lost === 3) {
-          console.log('LOSssTTTT');
+          console.log('LOSssTTT');
           $display.hide();
           // $('#display').text('You Lost');
           $card.css({"pointer-events":"none"});
@@ -129,11 +133,11 @@ $(() => {
     $card.css({ "text-indent": "-9999px", "background-image": "url('./images/ace-of-spade.jpg')" });
     divIndex = 1;
     $card.text('');
-    deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10 coins','10 coins', '20 coins', '20 coins'];
+    deckCards = ['flower', 'flower', 'flower', 'flower', 'mushroom', 'mushroom','mushroom','mushroom', 'star', 'star', 'star', 'star', '1up', '1up', '10-coins','10-coins', '20-coins', '20-coins'];
     $card.css({"pointer-events": "auto","background-color":"white"});
     $card.off();
     $items.text('');
-    console.log('RESEEEETTE');
+    console.log('RESeeET');
     $wrongs.text(0)
     wrong = 0;
     lost = 0;
